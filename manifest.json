@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Table Code Extractor",
+  "version": "1.0",
+  "description": "Extract HTML table code from web pages - By Mahesh Technicals",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

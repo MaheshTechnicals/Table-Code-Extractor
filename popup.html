@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table Code Extractor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      width: 500px;
+      min-height: 300px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #3498db;
+    }
+
+    .author-info {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #2c2c2c;
+      border-radius: 8px;
+    }
+
+    .author-name {
+      font-size: 1.2em;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .social-links a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 1.5em;
+    }
+
+    .social-links a:hover {
+      color: #3498db;
+    }
+
+    .youtube:hover {
+      color: #ff0000 !important;
+    }
+
+    .website:hover {
+      color: #00ff00 !important;
+    }
+
+    .github:hover {
+      color: #ffffff !important;
+    }
+
+    .telegram:hover {
+      color: #0088cc !important;
+    }
+
+    .extract-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .extract-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .tables-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .table-item {
+      background-color: #2c2c2c;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .copy-btn {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .copy-btn:hover {
+      background-color: #219a52;
+    }
+
+    .code-preview {
+      background-color: #363636;
+      padding: 10px;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      font-family: monospace;
+      white-space: pre-wrap;
+      color: #e0e0e0;
+    }
+
+    .no-tables {
+      text-align: center;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* Coffee Support Section Styles */
+    .coffee-support {
+      margin-top: 30px;
+      padding: 20px;
+      background: linear-gradient(145deg, #2c2c2c, #363636);
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid #444;
+    }
+
+    .coffee-title {
+      font-size: 1.2em;
+      color: #fff;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .coffee-emoji {
+      font-size: 1.4em;
+      animation: steam 2s infinite;
+    }
+
+    @keyframes steam {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(5deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    .donate-methods {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .donate-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      min-width: 120px;
+    }
+
+    .donate-btn.paypal {
+      background: linear-gradient(145deg, #0070ba, #005ea6);
+    }
+
+    .donate-btn.paypal:hover {
+      background: linear-gradient(145deg, #005ea6, #004a8c);
+      transform: translateY(-2px);
+    }
+
+    .donate-btn.upi {
+      background: linear-gradient(145deg, #7b1fa2, #6a1b9a);
+    }
+
+    .donate-btn.upi:hover {
+      background: linear-gradient(145deg, #6a1b9a, #4a148c);
+      transform: translateY(-2px);
+    }
+
+    .support-message {
+      font-size: 0.9em;
+      color: #888;
+      margin-top: 15px;
+      font-style: italic;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #2c2c2c;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>Table Code Extractor</h2>
+  </div>
+
+  <div class="author-info">
+    <div class="author-name">Mahesh Technicals</div>
+    <div class="social-links">
+      <a href="https://youtube.com/@maheshtechnicals" target="_blank" class="youtube" title="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://maheshtechnicals.com/" target="_blank" class="website" title="Website">
+        <i class="fas fa-globe"></i>
+      </a>
+      <a href="https://github.com/MaheshTechnicals" target="_blank" class="github" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://t.me/MaheshTechnicals" target="_blank" class="telegram" title="Telegram">
+        <i class="fab fa-telegram"></i>
+      </a>
+    </div>
+  </div>
+
+  <button id="extractBtn" class="extract-btn">Get Tables</button>
+  <div id="tablesContainer" class="tables-container"></div>
+
+  <div class="coffee-support">
+    <div class="coffee-title">
+      <span>Buy Me a Coffee</span>
+      <span class="coffee-emoji">☕</span>
+    </div>
+    <div class="support-message">Support my work and keep me caffeinated!</div>
+    <div class="donate-methods">
+      <a href="https://www.paypal.com/paypalme/Varma161" target="_blank" class="donate-btn paypal">
+        <i class="fab fa-paypal"></i>
+        PayPal
+      </a>
+      <a href="https://www.paypal.com/paypalme/Varma161" target="_blank" class="donate-btn upi">
+        <i class="fas fa-mobile-alt"></i>
+        UPI
+      </a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
