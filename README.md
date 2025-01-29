@@ -1,24 +1,37 @@
-# Table Code Extractor 📝💻  
+# 🚀 Table Code Extractor  
 
-🚀 **Table Code Extractor** is a powerful tool that helps you extract table structures and codes efficiently!  
+🔍 **Table Code Extractor** is a Chrome extension that lets you easily extract HTML table code from web pages. Built with ❤️ by **Mahesh Technicals**.  
 
-## 🔥 Features  
-✅ Extracts table code from various formats  
-✅ User-friendly interface  
-✅ Fast and reliable performance  
+## ✨ Features  
 
-## 📥 Download  
-Get the latest version from the [Releases](https://github.com/MaheshTechnicals/Table-Code-Extractor/releases) section!  
+✅ Extracts all HTML tables from any webpage.  
+✅ Displays extracted tables in a structured format.  
+✅ One-click copy feature for quick access.  
+✅ Sleek dark-themed UI with Font Awesome icons.  
+✅ Supports developer contributions via donations.  
 
-## 🚀 How to Use  
-1️⃣ Download the latest **Table Code Extractor** from the Releases section.  
-2️⃣ Extract the zip file and run the script.  
-3️⃣ Follow the on-screen instructions to extract table codes.  
+## 📦 Download Latest Version  
 
-## 🤝 Contribute  
-Feel free to fork this repo and improve the tool! PRs are always welcome.  
+🔗 **[Download the latest ZIP file from the Releases section! ⬇️](https://github.com/MaheshTechnicals/Table-Code-Extractor/releases)**  
 
-## 📧 Contact  
-For any queries or support, reach out to: **help@maheshtechnicals.com**  
+## 🔧 How to Install in Chrome  
 
-🔗 **Stay connected & support the project!** 🚀💙  
+1️⃣ **Add the extension to Chrome:**  
+   - Open Chrome and go to `chrome://extensions/`.  
+   - Enable **Developer Mode** (top-right corner).  
+   - Click **Load unpacked** and select the extracted folder.  
+
+## 🛠 Usage  
+
+1️⃣ Open a webpage containing an HTML table.  
+2️⃣ Click the **Table Code Extractor** extension icon.  
+3️⃣ Copy the extracted table code with a single click!  
+
+## 💖 Support & Contribute  
+
+🔹 Found this tool helpful? [Buy me a coffee! ☕](https://www.paypal.com/paypalme/Varma161)  
+🔹 Star ⭐ this repo to support the project!  
+
+---
+
+🔥 **Developed with passion by Mahesh Technicals.**  
